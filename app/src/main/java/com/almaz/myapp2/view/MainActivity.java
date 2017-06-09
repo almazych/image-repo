@@ -1,7 +1,8 @@
-package com.almaz.myapp2;
+package com.almaz.myapp2.view;
 
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.support.design.widget.NavigationView;
@@ -11,6 +12,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
+import com.almaz.myapp2.R;
 import com.almaz.myapp2.model.api.ApiModule;
 import com.almaz.myapp2.model.data.Gallery;
 import com.almaz.myapp2.presenter.Presenter;
@@ -33,7 +35,7 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
 
         mRecyclerView = (RecyclerView)findViewById(R.id.recycler_view);
-        mRecyclerView.setLayoutManager(new GridLayoutManager(this,3));
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
