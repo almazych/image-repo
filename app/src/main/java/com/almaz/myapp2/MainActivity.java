@@ -11,6 +11,8 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
+import com.almaz.myapp2.model.data.Gallery;
+
 import java.io.IOException;
 
 import retrofit2.Call;
