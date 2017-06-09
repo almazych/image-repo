@@ -11,7 +11,9 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
+import com.almaz.myapp2.model.api.ApiModule;
 import com.almaz.myapp2.model.data.Gallery;
+import com.almaz.myapp2.presenter.Presenter;
 
 import java.io.IOException;
 
@@ -23,6 +25,7 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     RecyclerView mRecyclerView;
+    Presenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,28 +63,8 @@ public class MainActivity extends AppCompatActivity
 
        if (id == R.id.nav_gallery) {
 
-            App.getApi().getData().enqueue(new Callback<Gallery>() {
-                @Override
-                public void onResponse(Call<Gallery> call, Response<Gallery> response) {
-                    if (response.isSuccessful()) {
-                        Log.d("LogTag", "Status Code = " + response.code());
-                    } else {
-                        try {
-                            Log.d("LogTag", response.errorBody().string());
-                        } catch (IOException ioe) {
-                            Log.d("LogTag", ioe.getLocalizedMessage());
-                        }
-                    }
-                }
-
-                @Override
-                public void onFailure(Call<Gallery> call, Throwable t) {
-                    Log.d("Fail", "ошибка запроса");
-                }
-            });
-
+           presenter.onGalleryButtonClick();
         }
-
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
