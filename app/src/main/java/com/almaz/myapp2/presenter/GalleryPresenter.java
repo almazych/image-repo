@@ -2,10 +2,11 @@ package com.almaz.myapp2.presenter;
 
 import com.almaz.myapp2.model.Model;
 import com.almaz.myapp2.model.ModelImpl;
+import com.almaz.myapp2.model.data.Datum;
+import com.almaz.myapp2.model.data.Gallery;
 
-/**
- * Created by Алмаз on 10.06.2017.
- */
+import java.util.List;
+
 
 public class GalleryPresenter implements Presenter {
 
@@ -13,8 +14,9 @@ public class GalleryPresenter implements Presenter {
 
 
     @Override
-    public void onGalleryButtonClick() {
+    public Gallery onGalleryButtonClick() {
 
-        //Вытащить изображения и отправить в ресайклер
+        return model.getImages();
     }
+
 }

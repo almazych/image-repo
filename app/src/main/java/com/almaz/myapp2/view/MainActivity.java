@@ -28,14 +28,13 @@ public class MainActivity extends AppCompatActivity
 
     RecyclerView mRecyclerView;
     Presenter presenter;
+    GalleryAdapter adapter;
+    Gallery gallery;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        mRecyclerView = (RecyclerView)findViewById(R.id.recycler_view);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -45,6 +44,11 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        mRecyclerView = (RecyclerView)findViewById(R.id.recycler_view);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        mRecyclerView.setLayoutManager(layoutManager);
+        mRecyclerView.setAdapter(adapter);
     }
 
 
@@ -64,8 +68,8 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
        if (id == R.id.nav_gallery) {
-
-           presenter.onGalleryButtonClick();
+           adapter.changeDataSet(presenter.onGalleryButtonClick().getData());
+           mRecyclerView.getAdapter().notifyDataSetChanged();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
