@@ -8,7 +8,6 @@ import com.almaz.myapp2.model.data.Gallery;
 import com.almaz.myapp2.view.GalleryAdapter;
 
 import java.io.IOException;
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;

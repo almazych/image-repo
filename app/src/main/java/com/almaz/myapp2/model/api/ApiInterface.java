@@ -7,6 +7,6 @@ import retrofit2.http.GET;
 
 public interface ApiInterface {
 
-    @GET("gallery/section/viral/0")
+    @GET("gallery/hot/viral/0")
     Call<Gallery> getData();
 }

@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity
     RecyclerView mRecyclerView;
     GalleryPresenter presenter;
     GalleryAdapter adapter;
+    View mView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +41,8 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         adapter = new GalleryAdapter(new ArrayList<Datum>());
+
+        presenter = new GalleryPresenter(mView);
 
         mRecyclerView = (RecyclerView)findViewById(R.id.recycler_view);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
