@@ -13,6 +13,7 @@ import com.almaz.myapp2.R;
 import com.almaz.myapp2.model.data.Datum;
 import com.bumptech.glide.Glide;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -21,7 +22,7 @@ import butterknife.ButterKnife;
 public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ViewHolder>{
 
     Context context;
-    private List<Datum> mDatum;
+    private List<Datum> mDatum  = new ArrayList<>();
 
     public GalleryAdapter(List<Datum> mDatum) {
         this.mDatum = mDatum;

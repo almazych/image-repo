@@ -4,18 +4,24 @@ import com.almaz.myapp2.model.Model;
 import com.almaz.myapp2.model.ModelImpl;
 import com.almaz.myapp2.model.data.Datum;
 import com.almaz.myapp2.model.data.Gallery;
+import com.almaz.myapp2.view.View;
 
 import java.util.List;
 
 
-public class GalleryPresenter implements Presenter {
+public class GalleryPresenter{
 
     private Model model = new ModelImpl();
+    private View view;
+
+    public GalleryPresenter(View view) {
+        this.view = view;
+    }
 
 
-    @Override
     public Gallery onGalleryButtonClick() {
 
+        view.showData(model.getImages().getData());
         return model.getImages();
     }
 

@@ -1,10 +1,8 @@
 package com.almaz.myapp2.view;
 
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -13,23 +11,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import com.almaz.myapp2.R;
-import com.almaz.myapp2.model.api.ApiModule;
-import com.almaz.myapp2.model.data.Gallery;
-import com.almaz.myapp2.presenter.Presenter;
+import com.almaz.myapp2.model.data.Datum;
+import com.almaz.myapp2.presenter.GalleryPresenter;
 
-import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, View {
 
     RecyclerView mRecyclerView;
-    Presenter presenter;
+    GalleryPresenter presenter;
     GalleryAdapter adapter;
-    Gallery gallery;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +38,8 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        adapter = new GalleryAdapter(new ArrayList<Datum>());
 
         mRecyclerView = (RecyclerView)findViewById(R.id.recycler_view);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
@@ -68,12 +64,17 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
        if (id == R.id.nav_gallery) {
-           adapter.changeDataSet(presenter.onGalleryButtonClick().getData());
+           presenter.onGalleryButtonClick();
            mRecyclerView.getAdapter().notifyDataSetChanged();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void showData(List<Datum> list) {
+        adapter.changeDataSet(list);
     }
 }
