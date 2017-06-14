@@ -16,7 +16,6 @@ import retrofit2.Response;
 public class ModelImpl implements Model {
 
     Gallery gallery;
-    GalleryAdapter adapter;
 
     @Override
     public Gallery getImages() {
@@ -27,7 +26,7 @@ public class ModelImpl implements Model {
                 if (response.isSuccessful()) {
                     Log.d("LogTag", "Status Code = " + response.code());
                     gallery = response.body();
-                    adapter.changeDataSet(gallery.getData());
+
                 } else {
                     try {
                         Log.d("LogTag", response.errorBody().string());

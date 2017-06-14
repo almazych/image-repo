@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity
     GalleryAdapter adapter;
     View mView;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,6 +79,7 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void showData(List<Datum> list) {
-        adapter.changeDataSet(list);
+            adapter.changeDataSet(list);
     }
+
 }
