@@ -7,5 +7,6 @@ import java.util.List;
 
 public interface View {
 
+
     void showData(List<Datum> list);
 }

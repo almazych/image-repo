@@ -25,12 +25,15 @@ public class MainActivity extends AppCompatActivity
     GalleryPresenter presenter;
     GalleryAdapter adapter;
     View mView;
+    List<Datum> list;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        list = new ArrayList<>();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -77,9 +80,16 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
+
+
+
     @Override
-    public void showData(List<Datum> list) {
+    public void showData(List<Datum> datumList) {
+        list = datumList;
             adapter.changeDataSet(list);
     }
+
+
+
 
 }

@@ -3,6 +3,7 @@ package com.almaz.myapp2.model.api;
 import android.app.Application;
 
 import com.almaz.myapp2.BuildConfig;
+import com.almaz.myapp2.model.ModelImpl;
 
 import java.util.concurrent.TimeUnit;
 
@@ -36,6 +37,8 @@ public class ApiModule extends Application {
                 .build();
 
         sApiInterface = retrofit.create(ApiInterface.class);
+
+        ModelImpl.initInstance();
     }
 
     public static ApiInterface getApi() {

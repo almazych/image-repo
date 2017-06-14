@@ -17,6 +17,26 @@ public class ModelImpl implements Model {
 
     Gallery gallery;
 
+    private static ModelImpl sModel;
+
+    private ModelImpl(){
+        gallery = new Gallery();
+    }
+
+    public static void initInstance() {
+
+        if (sModel == null) {
+            sModel = new ModelImpl();
+        }
+    }
+
+    public static ModelImpl getModel(){
+
+
+        return  sModel;
+    }
+
+
     @Override
     public Gallery getImages() {
 
@@ -45,4 +65,7 @@ public class ModelImpl implements Model {
         return gallery;
 
     }
+
+
+
 }

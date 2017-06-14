@@ -11,9 +11,9 @@ import java.util.List;
 
 public class GalleryPresenter{
 
-    private Model model = new ModelImpl();
+    private Model model =  ModelImpl.getModel();
     private View view;
-    private List<Datum> mDatum  = new ArrayList<>();
+    private List<Datum> mDatum = new ArrayList<>();
 
     public GalleryPresenter(View view) {
         this.view = view;
@@ -21,6 +21,7 @@ public class GalleryPresenter{
 
 
     public void onGalleryButtonClick() {
+
         mDatum = model.getImages().getData();
 
         view.showData(mDatum);
