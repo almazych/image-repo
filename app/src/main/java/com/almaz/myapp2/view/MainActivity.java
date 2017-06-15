@@ -25,7 +25,6 @@ public class MainActivity extends AppCompatActivity
     RecyclerView mRecyclerView;
     GalleryPresenter presenter;
     GalleryAdapter adapter;
-    View mView;
 
 
     @Override
@@ -45,7 +44,7 @@ public class MainActivity extends AppCompatActivity
 
         adapter = new GalleryAdapter(new ArrayList<Datum>());
 
-        presenter = new GalleryPresenter(null);
+        presenter = new GalleryPresenter(this);
 
         mRecyclerView = (RecyclerView)findViewById(R.id.recycler_view);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);

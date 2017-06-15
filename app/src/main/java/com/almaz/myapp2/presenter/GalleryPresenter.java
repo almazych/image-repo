@@ -5,6 +5,7 @@ import android.util.Log;
 import com.almaz.myapp2.model.Model;
 import com.almaz.myapp2.model.ModelImpl;
 import com.almaz.myapp2.model.data.Gallery;
+import com.almaz.myapp2.view.MainActivity;
 import com.almaz.myapp2.view.View;
 
 import java.io.IOException;
@@ -20,7 +21,7 @@ public class GalleryPresenter{
     Gallery gallery  = new Gallery();
     private View mView;
 
-    public GalleryPresenter(View mView){
+    public GalleryPresenter(MainActivity mView){
         this.mView = mView;
     }
 
