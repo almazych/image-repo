@@ -1,6 +1,7 @@
 package com.almaz.myapp2.view;
 
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.design.widget.NavigationView;
@@ -47,8 +48,7 @@ public class MainActivity extends AppCompatActivity
         presenter = new GalleryPresenter(this);
 
         mRecyclerView = (RecyclerView)findViewById(R.id.recycler_view);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        mRecyclerView.setLayoutManager(layoutManager);
+        mRecyclerView.setLayoutManager(new GridLayoutManager(this,3));
         mRecyclerView.setAdapter(adapter);
     }
 
