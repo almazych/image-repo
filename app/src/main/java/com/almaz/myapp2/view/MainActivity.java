@@ -8,6 +8,7 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MenuItem;
 
 import com.almaz.myapp2.R;
@@ -25,7 +26,6 @@ public class MainActivity extends AppCompatActivity
     GalleryPresenter presenter;
     GalleryAdapter adapter;
     View mView;
-    List<Datum> list;
 
 
     @Override
@@ -33,7 +33,6 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        list = new ArrayList<>();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -46,7 +45,7 @@ public class MainActivity extends AppCompatActivity
 
         adapter = new GalleryAdapter(new ArrayList<Datum>());
 
-        presenter = new GalleryPresenter(mView);
+        presenter = new GalleryPresenter(null);
 
         mRecyclerView = (RecyclerView)findViewById(R.id.recycler_view);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
@@ -79,17 +78,8 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-
-
-
-
     @Override
-    public void showData(List<Datum> datumList) {
-        list = datumList;
-            adapter.changeDataSet(list);
+    public void showData(List<Datum> list) {
+        adapter.changeDataSet(list);
     }
-
-
-
-
 }
