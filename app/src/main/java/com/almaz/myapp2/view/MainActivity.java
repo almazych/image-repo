@@ -48,7 +48,8 @@ public class MainActivity extends AppCompatActivity
         presenter = new GalleryPresenter(this);
 
         mRecyclerView = (RecyclerView)findViewById(R.id.recycler_view);
-        mRecyclerView.setLayoutManager(new GridLayoutManager(this,3));
+        mRecyclerView.setLayoutManager(new GridLayoutManager(this,2));
+        mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setAdapter(adapter);
     }
 

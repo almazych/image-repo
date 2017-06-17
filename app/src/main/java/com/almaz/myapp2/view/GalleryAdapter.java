@@ -64,7 +64,9 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ViewHold
         public void bind(final Datum item) {
 
             Glide.with(context)
-                    .load("https://i.imgur.com/"+item.getCover()+".jpg")
+                    .load("https://i.imgur.com/"+item.getCover()+".jpeg")
+                    .centerCrop()
+                    .placeholder(R.drawable.image_fon)
                     .into(imageView);
         }
     }
