@@ -41,6 +41,9 @@ public class Tag {
     @SerializedName("description_annotations")
     @Expose
     private DescriptionAnnotations descriptionAnnotations;
+    @SerializedName("accent")
+    @Expose
+    private Object accent;
 
     public String getName() {
         return name;
@@ -136,6 +139,14 @@ public class Tag {
 
     public void setDescriptionAnnotations(DescriptionAnnotations descriptionAnnotations) {
         this.descriptionAnnotations = descriptionAnnotations;
+    }
+
+    public Object getAccent() {
+        return accent;
+    }
+
+    public void setAccent(Object accent) {
+        this.accent = accent;
     }
 
 }
