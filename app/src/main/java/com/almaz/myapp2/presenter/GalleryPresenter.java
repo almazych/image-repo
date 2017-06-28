@@ -44,7 +44,7 @@ public class GalleryPresenter{
 
             @Override
             public void onFailure(Call<Gallery> call, Throwable t) {
-            Log.d("LogTag", "FAIL");
+                Log.d("LogTag", "FAIL");
             }
         });
     }

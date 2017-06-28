@@ -19,11 +19,16 @@ import butterknife.ButterKnife;
 public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ViewHolder>{
 
     Context context;
+    public interface OnItemClickListener {
+        void onItemClick(Datum item);
+    }
 
     private List<Datum> mDatum;
+    private OnItemClickListener listener;
 
-    public GalleryAdapter(List<Datum> mDatum) {
+    public GalleryAdapter(List<Datum> mDatum,  OnItemClickListener listener) {
         this.mDatum = mDatum;
+        this.listener = listener;
     }
 
     @Override
@@ -35,7 +40,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.bind(mDatum.get(position));
+        holder.bind(mDatum.get(position), listener);
     }
 
     @Override
@@ -61,13 +66,18 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ViewHold
             ButterKnife.bind(this,itemView);
         }
 
-        public void bind(final Datum item) {
+        public void bind(final Datum item,  final OnItemClickListener listener) {
 
             Glide.with(context)
                     .load("https://i.imgur.com/"+item.getCover()+".jpeg")
                     .centerCrop()
                     .placeholder(R.drawable.image_fon)
                     .into(imageView);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override public void onClick(View v) {
+                    listener.onItemClick(item);
+                }
+            });
         }
     }
 }

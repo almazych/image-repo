@@ -1,5 +1,6 @@
 package com.almaz.myapp2.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -43,12 +44,19 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        adapter = new GalleryAdapter(new ArrayList<Datum>());
+        final Intent intent = new Intent(this, SecondActivity.class);
+        adapter = new GalleryAdapter(new ArrayList<Datum>(), new GalleryAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(Datum item) {
+                intent.putExtra("COVER", item.getCover());
+                startActivity(intent);
+            }
+        });
 
         presenter = new GalleryPresenter(this);
 
-        mRecyclerView = (RecyclerView)findViewById(R.id.recycler_view);
-        mRecyclerView.setLayoutManager(new GridLayoutManager(this,2));
+        mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        mRecyclerView.setLayoutManager(new GridLayoutManager(this, 2));
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setAdapter(adapter);
     }
@@ -69,15 +77,16 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-       if (id == R.id.nav_gallery) {
-           presenter.onGalleryButtonClick();
-           mRecyclerView.getAdapter().notifyDataSetChanged();
+        if (id == R.id.nav_gallery) {
+            presenter.onGalleryButtonClick();
+            mRecyclerView.getAdapter().notifyDataSetChanged();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
     @Override
     public void showData(List<Datum> list) {
         adapter.changeDataSet(list);

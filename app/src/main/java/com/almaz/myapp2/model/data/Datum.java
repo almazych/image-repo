@@ -19,75 +19,33 @@ public class Datum {
     @SerializedName("datetime")
     @Expose
     private Integer datetime;
-    @SerializedName("type")
+    @SerializedName("cover")
     @Expose
-    private String type;
-    @SerializedName("animated")
+    private String cover;
+    @SerializedName("cover_width")
     @Expose
-    private Boolean animated;
-    @SerializedName("width")
+    private Integer coverWidth;
+    @SerializedName("cover_height")
     @Expose
-    private Integer width;
-    @SerializedName("height")
-    @Expose
-    private Integer height;
-    @SerializedName("size")
-    @Expose
-    private Integer size;
-    @SerializedName("views")
-    @Expose
-    private Integer views;
-    @SerializedName("bandwidth")
-    @Expose
-    private Integer bandwidth;
-    @SerializedName("vote")
-    @Expose
-    private Object vote;
-    @SerializedName("favorite")
-    @Expose
-    private Boolean favorite;
-    @SerializedName("nsfw")
-    @Expose
-    private Boolean nsfw;
-    @SerializedName("section")
-    @Expose
-    private String section;
+    private Integer coverHeight;
     @SerializedName("account_url")
     @Expose
     private String accountUrl;
     @SerializedName("account_id")
     @Expose
     private Integer accountId;
-    @SerializedName("is_ad")
+    @SerializedName("privacy")
     @Expose
-    private Boolean isAd;
-    @SerializedName("in_most_viral")
+    private String privacy;
+    @SerializedName("layout")
     @Expose
-    private Boolean inMostViral;
-    @SerializedName("tags")
+    private String layout;
+    @SerializedName("views")
     @Expose
-    private List<Tag> tags = null;
-    @SerializedName("ad_type")
-    @Expose
-    private Integer adType;
-    @SerializedName("ad_url")
-    @Expose
-    private String adUrl;
-    @SerializedName("in_gallery")
-    @Expose
-    private Boolean inGallery;
-    @SerializedName("topic")
-    @Expose
-    private String topic;
-    @SerializedName("topic_id")
-    @Expose
-    private Integer topicId;
+    private Integer views;
     @SerializedName("link")
     @Expose
     private String link;
-    @SerializedName("comment_count")
-    @Expose
-    private Integer commentCount;
     @SerializedName("ups")
     @Expose
     private Integer ups;
@@ -103,36 +61,48 @@ public class Datum {
     @SerializedName("is_album")
     @Expose
     private Boolean isAlbum;
-    @SerializedName("cover")
+    @SerializedName("vote")
     @Expose
-    private String cover;
-    @SerializedName("cover_width")
+    private Object vote;
+    @SerializedName("favorite")
     @Expose
-    private Integer coverWidth;
-    @SerializedName("cover_height")
+    private Boolean favorite;
+    @SerializedName("nsfw")
     @Expose
-    private Integer coverHeight;
-    @SerializedName("privacy")
+    private Boolean nsfw;
+    @SerializedName("section")
     @Expose
-    private String privacy;
-    @SerializedName("layout")
+    private String section;
+    @SerializedName("comment_count")
     @Expose
-    private String layout;
+    private Integer commentCount;
+    @SerializedName("topic")
+    @Expose
+    private String topic;
+    @SerializedName("topic_id")
+    @Expose
+    private Integer topicId;
     @SerializedName("images_count")
     @Expose
     private Integer imagesCount;
-    @SerializedName("mp4")
+    @SerializedName("in_gallery")
     @Expose
-    private String mp4;
-    @SerializedName("gifv")
+    private Boolean inGallery;
+    @SerializedName("is_ad")
     @Expose
-    private String gifv;
-    @SerializedName("mp4_size")
+    private Boolean isAd;
+    @SerializedName("tags")
     @Expose
-    private Integer mp4Size;
-    @SerializedName("looping")
+    private List<Tag> tags = null;
+    @SerializedName("ad_type")
     @Expose
-    private Boolean looping;
+    private Integer adType;
+    @SerializedName("ad_url")
+    @Expose
+    private String adUrl;
+    @SerializedName("in_most_viral")
+    @Expose
+    private Boolean inMostViral;
 
     public String getId() {
         return id;
@@ -166,92 +136,28 @@ public class Datum {
         this.datetime = datetime;
     }
 
-    public String getType() {
-        return type;
+    public String getCover() {
+        return cover;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setCover(String cover) {
+        this.cover = cover;
     }
 
-    public Boolean getAnimated() {
-        return animated;
+    public Integer getCoverWidth() {
+        return coverWidth;
     }
 
-    public void setAnimated(Boolean animated) {
-        this.animated = animated;
+    public void setCoverWidth(Integer coverWidth) {
+        this.coverWidth = coverWidth;
     }
 
-    public Integer getWidth() {
-        return width;
+    public Integer getCoverHeight() {
+        return coverHeight;
     }
 
-    public void setWidth(Integer width) {
-        this.width = width;
-    }
-
-    public Integer getHeight() {
-        return height;
-    }
-
-    public void setHeight(Integer height) {
-        this.height = height;
-    }
-
-    public Integer getSize() {
-        return size;
-    }
-
-    public void setSize(Integer size) {
-        this.size = size;
-    }
-
-    public Integer getViews() {
-        return views;
-    }
-
-    public void setViews(Integer views) {
-        this.views = views;
-    }
-
-    public Integer getBandwidth() {
-        return bandwidth;
-    }
-
-    public void setBandwidth(Integer bandwidth) {
-        this.bandwidth = bandwidth;
-    }
-
-    public Object getVote() {
-        return vote;
-    }
-
-    public void setVote(Object vote) {
-        this.vote = vote;
-    }
-
-    public Boolean getFavorite() {
-        return favorite;
-    }
-
-    public void setFavorite(Boolean favorite) {
-        this.favorite = favorite;
-    }
-
-    public Boolean getNsfw() {
-        return nsfw;
-    }
-
-    public void setNsfw(Boolean nsfw) {
-        this.nsfw = nsfw;
-    }
-
-    public String getSection() {
-        return section;
-    }
-
-    public void setSection(String section) {
-        this.section = section;
+    public void setCoverHeight(Integer coverHeight) {
+        this.coverHeight = coverHeight;
     }
 
     public String getAccountUrl() {
@@ -270,68 +176,28 @@ public class Datum {
         this.accountId = accountId;
     }
 
-    public Boolean getIsAd() {
-        return isAd;
+    public String getPrivacy() {
+        return privacy;
     }
 
-    public void setIsAd(Boolean isAd) {
-        this.isAd = isAd;
+    public void setPrivacy(String privacy) {
+        this.privacy = privacy;
     }
 
-    public Boolean getInMostViral() {
-        return inMostViral;
+    public String getLayout() {
+        return layout;
     }
 
-    public void setInMostViral(Boolean inMostViral) {
-        this.inMostViral = inMostViral;
+    public void setLayout(String layout) {
+        this.layout = layout;
     }
 
-    public List<Tag> getTags() {
-        return tags;
+    public Integer getViews() {
+        return views;
     }
 
-    public void setTags(List<Tag> tags) {
-        this.tags = tags;
-    }
-
-    public Integer getAdType() {
-        return adType;
-    }
-
-    public void setAdType(Integer adType) {
-        this.adType = adType;
-    }
-
-    public String getAdUrl() {
-        return adUrl;
-    }
-
-    public void setAdUrl(String adUrl) {
-        this.adUrl = adUrl;
-    }
-
-    public Boolean getInGallery() {
-        return inGallery;
-    }
-
-    public void setInGallery(Boolean inGallery) {
-        this.inGallery = inGallery;
-    }
-
-    public String getTopic() {
-        return topic;
-    }
-
-    public void setTopic(String topic) {
-        this.topic = topic;
-    }
-
-    public Integer getTopicId() {
-        return topicId;
-    }
-
-    public void setTopicId(Integer topicId) {
-        this.topicId = topicId;
+    public void setViews(Integer views) {
+        this.views = views;
     }
 
     public String getLink() {
@@ -340,14 +206,6 @@ public class Datum {
 
     public void setLink(String link) {
         this.link = link;
-    }
-
-    public Integer getCommentCount() {
-        return commentCount;
-    }
-
-    public void setCommentCount(Integer commentCount) {
-        this.commentCount = commentCount;
     }
 
     public Integer getUps() {
@@ -390,44 +248,60 @@ public class Datum {
         this.isAlbum = isAlbum;
     }
 
-    public String getCover() {
-        return cover;
+    public Object getVote() {
+        return vote;
     }
 
-    public void setCover(String cover) {
-        this.cover = cover;
+    public void setVote(Object vote) {
+        this.vote = vote;
     }
 
-    public Integer getCoverWidth() {
-        return coverWidth;
+    public Boolean getFavorite() {
+        return favorite;
     }
 
-    public void setCoverWidth(Integer coverWidth) {
-        this.coverWidth = coverWidth;
+    public void setFavorite(Boolean favorite) {
+        this.favorite = favorite;
     }
 
-    public Integer getCoverHeight() {
-        return coverHeight;
+    public Boolean getNsfw() {
+        return nsfw;
     }
 
-    public void setCoverHeight(Integer coverHeight) {
-        this.coverHeight = coverHeight;
+    public void setNsfw(Boolean nsfw) {
+        this.nsfw = nsfw;
     }
 
-    public String getPrivacy() {
-        return privacy;
+    public String getSection() {
+        return section;
     }
 
-    public void setPrivacy(String privacy) {
-        this.privacy = privacy;
+    public void setSection(String section) {
+        this.section = section;
     }
 
-    public String getLayout() {
-        return layout;
+    public Integer getCommentCount() {
+        return commentCount;
     }
 
-    public void setLayout(String layout) {
-        this.layout = layout;
+    public void setCommentCount(Integer commentCount) {
+        this.commentCount = commentCount;
+    }
+
+    public String getTopic() {
+        return topic;
+    }
+
+    public void setTopic(String topic) {
+        this.topic = topic;
+    }
+
+    public Integer getTopicId() {
+        return topicId;
+    }
+
+    public void setTopicId(Integer topicId) {
+        this.topicId = topicId;
     }
 
     public Integer getImagesCount() {
@@ -438,36 +312,52 @@ public class Datum {
         this.imagesCount = imagesCount;
     }
 
-    public String getMp4() {
-        return mp4;
+    public Boolean getInGallery() {
+        return inGallery;
     }
 
-    public void setMp4(String mp4) {
-        this.mp4 = mp4;
+    public void setInGallery(Boolean inGallery) {
+        this.inGallery = inGallery;
     }
 
-    public String getGifv() {
-        return gifv;
+    public Boolean getIsAd() {
+        return isAd;
     }
 
-    public void setGifv(String gifv) {
-        this.gifv = gifv;
+    public void setIsAd(Boolean isAd) {
+        this.isAd = isAd;
     }
 
-    public Integer getMp4Size() {
-        return mp4Size;
+    public List<Tag> getTags() {
+        return tags;
     }
 
-    public void setMp4Size(Integer mp4Size) {
-        this.mp4Size = mp4Size;
+    public void setTags(List<Tag> tags) {
+        this.tags = tags;
     }
 
-    public Boolean getLooping() {
-        return looping;
+    public Integer getAdType() {
+        return adType;
     }
 
-    public void setLooping(Boolean looping) {
-        this.looping = looping;
+    public void setAdType(Integer adType) {
+        this.adType = adType;
+    }
+
+    public String getAdUrl() {
+        return adUrl;
+    }
+
+    public void setAdUrl(String adUrl) {
+        this.adUrl = adUrl;
+    }
+
+    public Boolean getInMostViral() {
+        return inMostViral;
+    }
+
+    public void setInMostViral(Boolean inMostViral) {
+        this.inMostViral = inMostViral;
     }
 
 }
